@@ -1,6 +1,5 @@
-var markup = require('../../markup/markdown.js');
-var fileWriter = require('../../output/filewriter.js');
-var Template = require('../../output/template.js');
+var fileWriter = require('../../output/filewriter');
+var Template = require('../../output/template');
 
 exports.export = function (blog, path) {
 
@@ -11,8 +10,6 @@ exports.export = function (blog, path) {
 		blog.posts.forEach(function (post) {
 			var fileName = post.id + '.md';
 			
-			post.content = markup.convert(post.content);
-			console.log(post.id + ' OK');
 			fileWriter.write(fileName, path, postTemplate.render(post)).then(function () {
 				console.log(post.id + ' OK');
 			}).catch(function (err) {
@@ -21,7 +18,6 @@ exports.export = function (blog, path) {
 
 		});
 
-		console.log('resolve()');
 		resolve();
 
 	});

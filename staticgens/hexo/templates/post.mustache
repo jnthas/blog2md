@@ -1,8 +1,11 @@
 title: {{ title }}
-date: {{ date }}
-updated: {{ updated }}
-tags: {{ tags }}
-permalink: {{ permalink }}
+date: {{ publishedDate }}
+updated: {{ updatedDate }}
+categories: 
+{{#categories}}
+- {{.}}
+{{/categories}}
+permalink: {{ id }}
 ---
 
 {{{ content }}}

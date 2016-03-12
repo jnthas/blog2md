@@ -1,9 +1,16 @@
+
+/*
+ *  Interface
+ *    - toModel(json, contentConverter) convert a raw blog json to model defined in ./model.js
+ *      contentConverter is used to convert post content to especific format like Markdown.
+ */
+
 var slug = require('slug');
-var model = require('./model.js');
+var model = require('./model');
 
 function Blogger() {};
 
-Blogger.prototype.toModel = function (json) {
+Blogger.prototype.toModel = function (json, contentConverter) {
 
 	console.log('Atom Version: ', json.version);
 	console.log('Generator: ', json.feed.generator.$t + ' v' + json.feed.generator.version);
@@ -20,12 +27,12 @@ Blogger.prototype.toModel = function (json) {
   blog.author = getAuthors(json.feed.author);
   blog.title = json.feed.title.$t;
   
-  extractPosts(json.feed.entry, blog);
+  extractPosts(json.feed.entry, blog, contentConverter);
   
   return blog;	
 };
 
-function extractPosts(entries, blog) {
+function extractPosts(entries, blog, contentConverter) {
 
   entries.forEach(function (entry) {
 
@@ -34,10 +41,16 @@ function extractPosts(entries, blog) {
     post.id = slug(entry.title.$t, {lower: true});
     post.publishedDate = entry.published.$t;
     post.updatedDate = entry.updated.$t;
-    post.categories = getTags(entry.category);
+    post.categories = getCategories(entry.category);
     post.title = entry.title.$t;
     post.author = getAuthors(entry.author);
-    post.content = entry.content.$t;
+    post.content = contentConverter.convert(entry.content.$t);    
+
+    if (post.author.length === 0) {
+      console.log('-> There is no author for post "' + post.title + '"');
+    } else if (post.categories.length === 0) {
+      console.log('-> There is no category for post "' + post.title + '"');
+    }
 
     blog.posts.push(post);
     
@@ -45,12 +58,16 @@ function extractPosts(entries, blog) {
 }
 
 function getAuthors (authors) {
+  if (authors === undefined) return [];
+
   return authors.map(function (author) {
     return author.name.$t;
   });
 }
 
-function getTags (categories) {
+function getCategories (categories) {
+  if (categories === undefined) return [];
+
 	return categories.map(function (category) {
     return category.term;
   });

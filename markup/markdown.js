@@ -12,5 +12,12 @@ function getTagReplacements () {
     }
   };
 
+  var span = {
+    filter: 'span',
+    replacement: function (content) {
+      return content;
+    }
+  };
+
   return [div];
 }
