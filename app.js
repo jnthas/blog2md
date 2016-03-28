@@ -1,3 +1,4 @@
+#!/usr/local/bin/node
 var input = require('./input/http');
 var format = require('./format/json');
 var origin = require('./origin/blogger');
