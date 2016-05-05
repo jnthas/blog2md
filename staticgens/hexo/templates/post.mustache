@@ -1,11 +1,14 @@
-title: {{ title }}
+title: "{{ title }}"
 date: {{ publishedDate }}
 updated: {{ updatedDate }}
-categories: 
-{{#categories}}
-- {{.}}
-{{/categories}}
-permalink: {{ id }}
+{{#categories.length}}
+  tags: 
+  {{#categories}}
+  - "{{.}}"
+  {{/categories}}
+{{/categories.length}}
+permalink: "{{ id }}"
+comments: true
 ---
 
 {{{ content }}}

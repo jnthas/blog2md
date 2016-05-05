@@ -1,21 +1,33 @@
 {
-  "name": "blog2md",
-  "version": "1.0.0",
-  "description": "A blog entries to markdown conversion tool",
-  "main": "index.js",
+  "name": "to-static",
+  "version": "0.1.0",
+  "description": "A migration tool used to convert convencional blogs to static website generators data source",
+  "main": "app.js",
+  "bin": {
+    "to-static": "app.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jnthas/blog2md.git"
+    "url": "git+https://github.com/jnthas/to-static.git"
   },
-  "author": "Jonathas Amaral",
+  "keywords": [
+    "static",
+    "website",
+    "cms",
+    "framework",
+    "cli",
+    "conversion",
+    "migration"
+  ],
+  "author": "Jonathas Amaral <jnthas@gmail.com> (about.me/jonathasamaral)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jnthas/blog2md/issues"
+    "url": "https://github.com/jnthas/to-static/issues"
   },
-  "homepage": "https://github.com/jnthas/blog2md#readme",
+  "homepage": "https://github.com/jnthas/to-static",
   "dependencies": {
     "hogan.js": "^3.0.2",
     "mkdirp": "^0.5.1",
