@@ -1,6 +1,6 @@
 {
   "name": "to-static",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A migration tool used to convert convencional blogs to static website generators data source",
   "main": "app.js",
   "bin": {
