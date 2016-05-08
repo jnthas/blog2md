@@ -2,9 +2,12 @@
 
 var hogan = require("hogan.js");
 var fs = require("fs");
+var path = require('path');
 
-function Template(templateFile) {
-	var content = fs.readFileSync('./staticgens/' + templateFile);
+function Template(staticGenPath, templateFile) {
+	var fullPath = path.join(staticGenPath, 'templates', templateFile);
+	console.log(fullPath);
+	var content = fs.readFileSync(fullPath);
 	this.templateFile = hogan.compile(content.toString());
 };
 

@@ -6,7 +6,7 @@ exports.export = function (blog, path) {
 
 	return new Promise(function (resolve, reject) {
 
-		postTemplate = new Template('hexo/templates/post.mustache');
+		postTemplate = new Template(__dirname, 'post.mustache');
 
 		blog.posts.forEach(function (post) {
 			var fileName = post.id + '.md';
