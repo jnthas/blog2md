@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var fileWriter = require('../../output/filewriter');
 var Template = require('../../output/template');
 

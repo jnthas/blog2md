@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var toMarkdown = require('to-markdown');
 
 exports.convert = function (content) {

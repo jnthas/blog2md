@@ -1,4 +1,4 @@
-
+#!/usr/bin/env node
 /*
  *  Interface
  *    - toModel(json, contentConverter) convert a raw blog json to model defined in ./model.js

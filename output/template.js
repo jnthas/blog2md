@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var hogan = require("hogan.js");
 var fs = require("fs");
 

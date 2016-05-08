@@ -1,4 +1,4 @@
-
+#!/usr/bin/env node
 /*
  *	Interface
  *		- toJson(string) returns a formated JavaScript object.

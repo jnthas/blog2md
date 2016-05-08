@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 function Model() {};
 
 Model.prototype.Blog = function () {

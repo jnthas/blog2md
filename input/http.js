@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
  *	Interface
  *		- getFeed(path) returns a string of blog content 
