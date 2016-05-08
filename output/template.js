@@ -5,8 +5,7 @@ var fs = require("fs");
 var path = require('path');
 
 function Template(staticGenPath, templateFile) {
-	var fullPath = path.join(staticGenPath, 'templates', templateFile);
-	console.log(fullPath);
+	var fullPath = path.join(staticGenPath, 'templates', templateFile);	
 	var content = fs.readFileSync(fullPath);
 	this.templateFile = hogan.compile(content.toString());
 };
